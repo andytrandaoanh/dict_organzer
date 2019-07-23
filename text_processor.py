@@ -26,3 +26,26 @@ def processText(dirIn, dirOut):
 
 	sysHandle.openDir(dirOut)
 	sys.exit()
+
+
+
+
+def processText2(dirIn, dirOut):
+	#print('dirIn:', dirIn, '\ndirOut:', dirOut)
+	
+	pathOut = sysHandle.getOutPath(dirOut)
+	
+	#print('pathOut:', pathOut)
+
+	bigDict = sysHandle.loadDictionaries(dirIn)
+	
+	tempDict = [item for item in bigDict if item]
+
+	newDict = list(dict.fromkeys(tempDict))
+	newDict.sort()
+
+	#print('new dictionary:', newDict)
+	sysHandle.writeListToFile(newDict, pathOut)
+
+	sysHandle.openDir(dirOut)
+	sys.exit()

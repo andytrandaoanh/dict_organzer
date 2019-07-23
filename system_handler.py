@@ -1,4 +1,5 @@
 import os, sys
+from datetime import datetime
 
 def openDir(targetdir):
 	#open directory when done	
@@ -25,6 +26,13 @@ def getRawPath(dirOut):
 	#fname, fext = os.path.splitext(temp_path)
 	#pathOut =  os.path.join(dirOut, fname + JSON_EXTENSION) 
 	pathOut =  os.path.join(dirOut, FILNAME_OUT) 
+	return(pathOut)
+
+def getOutPath(dirOut):
+	now = datetime.now()
+	dateTime = now.strftime("%Y%m%d_%H%M")
+	fileName = "Normal_Case_Dictionary_" + dateTime + ".txt"
+	pathOut =  os.path.join(dirOut, fileName ) 
 	return(pathOut)
 
 
