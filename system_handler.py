@@ -90,3 +90,16 @@ def loadDictionaries(dirDic):
 	dicData = list(dict.fromkeys(bigDic))
 	dicData.sort()
 	return dicData
+
+
+def getLineFromTextFile(filepath):
+    try:
+        ofile = open(filepath, 'r', encoding = 'utf-8') 
+        data = ofile.read()
+        lines = data.split('\n')
+        return lines
+
+    except FileNotFoundError:
+        print("file not found")    
+    except Exception as e:
+        print(e)   
